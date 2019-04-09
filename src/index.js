@@ -7,17 +7,27 @@ class Room extends React.Component {
     state = {
         isLit: true
     }
+
+    //setting variable to true
     flipLight = () => {
         this.setState({
-            isLit: !this.state.isLit
+            isLit: true
         });
+    } 
+    //setting variable to false
+    turnOff = () => {
+        this.setState({
+            isLit: false
+        });
+    
     };
     render() {
         const brightness = this.state.isLit ? "lit" : "dark";
         return (
             <div className={`room ${brightness}`}>
             <br />
-            <button onClick={this.flipLight}>flip</button>
+            <button onClick={this.flipLight}>On</button>
+            <button onClick={this.turnOff}>Off</button>
             </div>
         );
     }
