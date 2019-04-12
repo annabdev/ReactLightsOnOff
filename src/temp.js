@@ -2,34 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import "./index.css";
-//import lightSwitch from './Hooks'
 
 
 class Room extends React.Component {
     state = {
-        isLit: true
+        temp: 72
     }
 
     //setting variable to true
-    flipLight = () => {
+    hotter = () => {
         this.setState({
-            isLit: true
+            temp: 
         });
     } 
     //setting variable to false
-    turnOff = () => {
+    cooler = () => {
         this.setState({
-            isLit: false
+            temp: --;
         });
     
     };
     render() {
-        const brightness = this.state.isLit ? "lit" : "dark";
+        const temperature = this.state.temp = 72;
         return (
-            <div className={`room ${brightness}`}>
+            <div className={`room ${temperature}`}>
             <br />
-            <button onClick={this.flipLight}>On</button>
-            <button onClick={this.turnOff}>Off</button>
+            <button onClick={this.hotter}>Increase</button>
+            <button onClick={this.cooler}>Decrease</button>
             </div>
         );
     }
