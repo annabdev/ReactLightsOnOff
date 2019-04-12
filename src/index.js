@@ -1,10 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import "./index.css";
-//import lightSwitch from './Hooks'
+import LightSwitch from './Hooks'
 
+//Nates code
 
+const Room = () => {
+
+    const [lightswitch, setLightswitch] = useState(true); //This is just a simple boolean. true === on, false === off
+    const bgClass = lightswitch ? 'lit' : 'dark'
+    const textColor = lightswitch ? 'white' : 'red'
+
+    return (
+        <div className={`container ${bgClass}`}>
+            <LightSwitch className={'lightSwitch'} lightStatus={setLightswitch} />
+            <div style={{color: textColor}} className={`hiddenText`}>Can you see in the dark?</div>
+        </div>
+    )
+}
+
+/*** Anna's code
 class Room extends React.Component {
     state = {
         isLit: true
@@ -34,4 +49,5 @@ class Room extends React.Component {
         );
     }
 }
+***/
 ReactDOM.render(<Room />, document.getElementById('root'));
