@@ -1,37 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import "./index.css";
-//import lightSwitch from './Hooks'
+import "./index.css"
 
 
-class Room extends React.Component {
-    state = {
-        isLit: true
-    }
 
-    //setting variable to true
-    flipLight = () => {
-        this.setState({
-            isLit: true
-        });
-    } 
-    //setting variable to false
-    turnOff = () => {
-        this.setState({
-            isLit: false
-        });
-    
-    };
-    render() {
-        const brightness = this.state.isLit ? "lit" : "dark";
-        return (
-            <div className={`room ${brightness}`}>
+const Hooks = () => {
+    const [on, setOn] = useState(true);
+    const brightness = on ? "lit" : "dark";
+
+    return (
+        <div className={`Hooks ${brightness}`}>
             <br />
-            <button onClick={this.flipLight}>On</button>
-            <button onClick={this.turnOff}>Off</button>
-            </div>
-        );
-    }
+            <button onClick={() => setOn(true)}>On</button>
+            <button onClick={() => setOn(false)}>Off</button>
+            <br />
+        </div>
+    )
 }
-ReactDOM.render(<Room />, document.getElementById('root'));
+
+
+
+
+    ;
+
+ReactDOM.render(<Hooks />, document.getElementById('root'));
